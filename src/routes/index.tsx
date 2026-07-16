@@ -31,38 +31,44 @@ const NAV = [
 ];
 
 const SKILL_GROUPS = [
-  { title: "Languages", icon: Code2, items: ["Java"] },
-  { title: "Web Technologies", icon: Globe, items: ["HTML", "CSS", "JavaScript", "React"] },
-  { title: "Databases", icon: Database, items: ["MySQL", "PostgreSQL", "MongoDB"] },
-  { title: "Tools", icon: Wrench, items: ["Git", "GitHub", "VS Code", "IntelliJ IDEA", "AntiGravity"] },
-  { title: "Operating Systems", icon: Monitor, items: ["Ubuntu Linux", "Linux Mint", "Windows"] },
+  { title: "Languages", icon: Code2, items: ["Java", "Python", "JavaScript", "HTML", "CSS"] },
+  { title: "Backend & Runtime", icon: Globe, items: ["Node.js", "REST APIs", "OOP"] },
+  { title: "Databases", icon: Database, items: ["MySQL", "SQL", "MongoDB", "NoSQL"] },
+  { title: "Core Concepts", icon: Sparkles, items: ["Data Structures", "Algorithms", "Database Design"] },
+  { title: "Tools", icon: Wrench, items: ["Git", "GitHub", "VS Code", "AntiGravity"] },
+  { title: "Languages Known", icon: Monitor, items: ["Tamil", "English"] },
 ];
 
 const PROJECTS = [
   {
-    title: "Project Title One",
-    desc: "A short description of what this project does, the problem it solves and the impact. Replace with real content.",
-    tech: ["Java", "Spring Boot", "MySQL"],
-    gradient: "from-blue-500 to-indigo-600",
+    title: "Gym Management System",
+    desc: "Admin-focused platform to manage gym members, progress tracking, membership plans, and reporting. Designed the complete database structure for the Progress Tracking, Membership, and Report modules, ensuring organized data and smooth workflow between modules.",
+    tech: ["MySQL", "Backend", "Database Design"],
+    role: "Web Development Intern — AR Technologies",
   },
   {
-    title: "Project Title Two",
-    desc: "A short description of what this project does, the problem it solves and the impact. Replace with real content.",
-    tech: ["Node.js", "Express", "MongoDB"],
-    gradient: "from-sky-500 to-blue-600",
+    title: "Hospital Management System",
+    desc: "Physiotherapy Clinic HMS with role-based access for Patients, Therapists, and Chief Doctor. Designed relational schema for registration, therapist management, appointment booking, exercise assignment, and treatment tracking with a focus on normalization and data integrity.",
+    tech: ["SQL", "Schema Design", "RBAC"],
+    role: "Academic Project",
   },
   {
-    title: "Project Title Three",
-    desc: "A short description of what this project does, the problem it solves and the impact. Replace with real content.",
-    tech: ["React", "PostgreSQL", "REST API"],
-    gradient: "from-indigo-500 to-purple-600",
+    title: "College ERP System — HOD Portal",
+    desc: "Centralized ERP platform with an HOD portal to manage student and staff data. Designed modules for academic records and departmental management to enable efficient monitoring and streamlined administrative workflows.",
+    tech: ["Java", "MySQL", "ERP"],
+    role: "Academic Project",
+  },
+  {
+    title: "Time Table Scheduler",
+    desc: "Web system that automatically generates conflict-free class timetables. Reduced manual scheduling errors and improved academic timetable management efficiency.",
+    tech: ["JavaScript", "Node.js", "Algorithms"],
+    role: "Web Development Intern — AR Technologies",
   },
 ];
 
 const CERTS = [
-  { title: "Certification Placeholder", org: "Issuing Organization", year: "2025" },
-  { title: "Certification Placeholder", org: "Issuing Organization", year: "2025" },
-  { title: "Certification Placeholder", org: "Issuing Organization", year: "2025" },
+  { title: "Fundamentals of Python", org: "Infosys Springboard", year: "2025" },
+  { title: "Basics of MongoDB", org: "MongoDB (Official)", year: "2025" },
 ];
 
 function Portfolio() {
