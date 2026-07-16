@@ -179,3 +179,32 @@
 @utility shadow-elegant {
   box-shadow: var(--shadow-elegant);
 }
+
+@utility shadow-glow {
+  box-shadow: var(--shadow-glow);
+}
+
+@utility bg-grid {
+  background-image: var(--grid-pattern);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 40%, transparent 100%);
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.7; }
+}
+
+@utility animate-float {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+@utility animate-glow {
+  animation: glow-pulse 4s ease-in-out infinite;
+}
+
