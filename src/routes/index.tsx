@@ -298,15 +298,16 @@ function Portfolio() {
             {SKILL_GROUPS.map(({ title, icon: Icon, items }) => (
               <Card
                 key={title}
-                className="group rounded-2xl border-border p-6 shadow-soft transition-all hover:-translate-y-1 hover:shadow-elegant"
+                className="group relative overflow-hidden rounded-2xl border-border bg-card p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-elegant"
               >
-                <div className="mb-4 grid size-11 place-items-center rounded-xl bg-primary-gradient text-primary-foreground shadow-soft">
+                <div className="absolute -right-10 -top-10 size-32 rounded-full bg-primary/10 blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                <div className="relative mb-4 grid size-12 place-items-center rounded-xl bg-primary-gradient text-primary-foreground shadow-glow">
                   <Icon className="size-5" />
                 </div>
-                <h3 className="font-semibold" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>{title}</h3>
-                <div className="mt-4 flex flex-wrap gap-2">
+                <h3 className="relative font-semibold tracking-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>{title}</h3>
+                <div className="relative mt-4 flex flex-wrap gap-2">
                   {items.map((it) => (
-                    <Badge key={it} variant="secondary" className="rounded-full bg-accent text-accent-foreground hover:bg-accent">
+                    <Badge key={it} variant="secondary" className="rounded-full border border-primary/15 bg-primary/5 text-foreground/90 hover:bg-primary/10">
                       {it}
                     </Badge>
                   ))}
@@ -315,6 +316,7 @@ function Portfolio() {
             ))}
           </div>
         </Section>
+
 
         {/* EDUCATION */}
         <Section id="education" eyebrow="Education" title="Academic journey">
