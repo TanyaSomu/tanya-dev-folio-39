@@ -192,50 +192,54 @@ function Portfolio() {
       <main className="pt-16">
         {/* HERO */}
         <section id="home" className="relative overflow-hidden bg-hero-gradient">
-          <div className="pointer-events-none absolute -left-24 top-10 size-72 rounded-full bg-primary/20 blur-3xl" />
-          <div className="pointer-events-none absolute -right-24 bottom-0 size-72 rounded-full bg-sky-300/30 blur-3xl" />
-          <div className="mx-auto grid max-w-6xl gap-12 px-4 py-20 sm:px-6 md:py-28 lg:grid-cols-2 lg:items-center">
+          <div className="pointer-events-none absolute inset-0 bg-grid opacity-60" aria-hidden />
+          <div className="pointer-events-none absolute -left-32 top-10 size-96 rounded-full bg-primary/25 blur-3xl animate-glow" aria-hidden />
+          <div className="pointer-events-none absolute -right-32 bottom-0 size-96 rounded-full bg-sky-400/20 blur-3xl animate-glow" aria-hidden />
+          <div className="relative mx-auto grid max-w-6xl gap-12 px-4 py-20 sm:px-6 md:py-28 lg:grid-cols-2 lg:items-center">
             <div className="animate-fade-in">
-              <Badge className="mb-5 rounded-full bg-accent px-3 py-1 text-accent-foreground hover:bg-accent">
-                <span className="mr-1.5 inline-block size-1.5 rounded-full bg-primary" />
+              <Badge className="mb-5 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-primary hover:bg-primary/15">
+                <span className="mr-1.5 inline-block size-1.5 rounded-full bg-primary animate-pulse" />
                 Available for internships
               </Badge>
               <h1
-                className="text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl md:text-6xl"
+                className="text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-[4.25rem]"
                 style={{ fontFamily: "'Space Grotesk', sans-serif" }}
               >
                 Tanya <span className="gradient-text">Somasundaram</span>
               </h1>
-              <p className="mt-3 text-xl font-medium text-primary sm:text-2xl">
-                Backend Developer
-              </p>
-              <p className="mt-4 max-w-xl text-base italic text-muted-foreground sm:text-lg">
+              <div className="mt-4 flex items-center gap-3">
+                <span className="h-px w-10 bg-primary/60" />
+                <p className="text-lg font-medium uppercase tracking-[0.2em] text-primary sm:text-xl">
+                  Backend Developer
+                </p>
+              </div>
+              <p className="mt-5 max-w-xl text-base italic text-muted-foreground sm:text-lg">
                 "Building reliable backend systems and transforming ideas into scalable digital solutions."
               </p>
-              <p className="mt-5 max-w-xl text-muted-foreground">
+              <p className="mt-5 max-w-xl leading-relaxed text-muted-foreground">
                 I am a final-year Information Technology student with a strong passion for
                 backend development, databases, and problem-solving. I enjoy building efficient
                 applications, learning modern technologies, and continuously improving my
                 software development skills.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <Button size="lg" onClick={() => go("projects")} className="bg-primary-gradient text-primary-foreground shadow-soft hover:opacity-90">
+                <Button size="lg" onClick={() => go("projects")} className="bg-primary-gradient text-primary-foreground shadow-glow hover:opacity-90">
                   View Projects <ArrowRight className="ml-1 size-4" />
                 </Button>
-                <Button size="lg" variant="outline" onClick={() => go("contact")}>
+                <Button size="lg" variant="outline" onClick={() => go("contact")} className="border-primary/40 hover:bg-primary/10 hover:text-primary">
                   Contact Me
                 </Button>
-                <Button size="lg" variant="secondary" asChild>
+                <Button size="lg" variant="ghost" asChild>
                   <a href="/resume.txt" download aria-label="Download Resume">
-                    <Download className="mr-1 size-4" /> Download Resume
+                    <Download className="mr-1 size-4" /> Resume
                   </a>
                 </Button>
               </div>
             </div>
 
             <div className="relative mx-auto animate-scale-in">
-              <div className="absolute inset-0 -z-10 translate-x-4 translate-y-4 rounded-[2rem] bg-primary-gradient blur-2xl opacity-30" />
-              <div className="relative overflow-hidden rounded-[2rem] border border-border bg-card p-2 shadow-elegant">
+              <div className="absolute inset-0 -z-10 translate-x-6 translate-y-6 rounded-[2rem] bg-primary-gradient opacity-40 blur-3xl" />
+              <div className="relative overflow-hidden rounded-[2rem] border border-primary/20 bg-card p-2 shadow-elegant animate-float">
                 <img
                   src={tanyaAsset.url}
                   alt="Portrait of Tanya Somasundaram"
@@ -243,13 +247,18 @@ function Portfolio() {
                   className="h-[440px] w-[340px] rounded-[1.6rem] object-cover sm:h-[520px] sm:w-[400px]"
                 />
               </div>
-              <div className="absolute -bottom-4 -left-4 hidden rounded-2xl border border-border bg-background/90 px-4 py-3 shadow-soft backdrop-blur sm:block">
-                <p className="text-xs text-muted-foreground">CGPA</p>
+              <div className="absolute -bottom-4 -left-4 rounded-2xl border border-border bg-background/90 px-4 py-3 shadow-soft backdrop-blur">
+                <p className="text-[10px] uppercase tracking-wider text-muted-foreground">CGPA</p>
                 <p className="text-lg font-bold gradient-text">8.6 / 10</p>
+              </div>
+              <div className="absolute -top-4 -right-4 hidden rounded-2xl border border-border bg-background/90 px-4 py-3 shadow-soft backdrop-blur sm:block">
+                <p className="text-[10px] uppercase tracking-wider text-muted-foreground">Focus</p>
+                <p className="text-sm font-bold text-primary">Backend + DB</p>
               </div>
             </div>
           </div>
         </section>
+
 
         {/* ABOUT */}
         <Section id="about" eyebrow="About" title="A backend-focused engineer in the making">
@@ -289,15 +298,16 @@ function Portfolio() {
             {SKILL_GROUPS.map(({ title, icon: Icon, items }) => (
               <Card
                 key={title}
-                className="group rounded-2xl border-border p-6 shadow-soft transition-all hover:-translate-y-1 hover:shadow-elegant"
+                className="group relative overflow-hidden rounded-2xl border-border bg-card p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-elegant"
               >
-                <div className="mb-4 grid size-11 place-items-center rounded-xl bg-primary-gradient text-primary-foreground shadow-soft">
+                <div className="absolute -right-10 -top-10 size-32 rounded-full bg-primary/10 blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                <div className="relative mb-4 grid size-12 place-items-center rounded-xl bg-primary-gradient text-primary-foreground shadow-glow">
                   <Icon className="size-5" />
                 </div>
-                <h3 className="font-semibold" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>{title}</h3>
-                <div className="mt-4 flex flex-wrap gap-2">
+                <h3 className="relative font-semibold tracking-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>{title}</h3>
+                <div className="relative mt-4 flex flex-wrap gap-2">
                   {items.map((it) => (
-                    <Badge key={it} variant="secondary" className="rounded-full bg-accent text-accent-foreground hover:bg-accent">
+                    <Badge key={it} variant="secondary" className="rounded-full border border-primary/15 bg-primary/5 text-foreground/90 hover:bg-primary/10">
                       {it}
                     </Badge>
                   ))}
@@ -306,6 +316,7 @@ function Portfolio() {
             ))}
           </div>
         </Section>
+
 
         {/* EDUCATION */}
         <Section id="education" eyebrow="Education" title="Academic journey">
@@ -328,15 +339,17 @@ function Portfolio() {
             {PROJECTS.map((p, i) => (
               <Card
                 key={p.title}
-                className="group relative overflow-hidden rounded-xl border-border bg-card p-7 shadow-soft transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-elegant"
+                className="group relative overflow-hidden rounded-2xl border-border bg-card p-7 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-elegant"
               >
-                <div className="flex items-start justify-between gap-4">
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <div className="absolute -right-16 -top-16 size-40 rounded-full bg-primary/10 blur-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                <div className="relative flex items-start justify-between gap-4">
                   <div>
                     <p className="font-mono text-xs uppercase tracking-[0.25em] text-primary/80">
                       {String(i + 1).padStart(2, "0")} / Project
                     </p>
                     <h3
-                      className="mt-2 text-xl font-semibold tracking-tight"
+                      className="mt-2 text-xl font-semibold tracking-tight transition-colors group-hover:text-primary"
                       style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                     >
                       {p.title}
@@ -345,19 +358,19 @@ function Portfolio() {
                       {p.role}
                     </p>
                   </div>
-                  <div className="grid size-10 shrink-0 place-items-center rounded-md border border-border bg-muted/40 text-primary">
+                  <div className="grid size-11 shrink-0 place-items-center rounded-xl bg-primary-gradient text-primary-foreground shadow-glow">
                     <Code2 className="size-5" />
                   </div>
                 </div>
-                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                <p className="relative mt-4 text-sm leading-relaxed text-muted-foreground">
                   {p.desc}
                 </p>
-                <div className="mt-5 flex flex-wrap gap-1.5">
+                <div className="relative mt-5 flex flex-wrap gap-1.5">
                   {p.tech.map((t) => (
                     <Badge
                       key={t}
                       variant="outline"
-                      className="rounded-full border-border/80 bg-muted/30 font-mono text-[10px] uppercase tracking-wider"
+                      className="rounded-full border-primary/20 bg-primary/5 font-mono text-[10px] uppercase tracking-wider text-primary/90"
                     >
                       {t}
                     </Badge>
@@ -367,6 +380,7 @@ function Portfolio() {
             ))}
           </div>
         </Section>
+
 
         {/* EXPERIENCE */}
         <Section id="experience" eyebrow="Experience" title="Where I'm heading next">
@@ -478,12 +492,15 @@ function Section({
   id, eyebrow, title, muted, children,
 }: { id: string; eyebrow: string; title: string; muted?: boolean; children: React.ReactNode }) {
   return (
-    <section id={id} className={`py-20 sm:py-24 ${muted ? "bg-muted/40" : ""}`}>
+    <section id={id} className={`relative py-20 sm:py-24 ${muted ? "bg-muted/30" : ""}`}>
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="mb-10 max-w-2xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">{eyebrow}</p>
+        <div className="mb-12 max-w-2xl">
+          <div className="flex items-center gap-3">
+            <span className="h-px w-8 bg-primary/60" />
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">{eyebrow}</p>
+          </div>
           <h2
-            className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl"
+            className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl md:text-[2.75rem]"
             style={{ fontFamily: "'Space Grotesk', sans-serif" }}
           >
             {title}
@@ -494,6 +511,7 @@ function Section({
     </section>
   );
 }
+
 
 function TimelineItem({
   icon, title, subtitle, meta, body,
