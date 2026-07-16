@@ -487,12 +487,15 @@ function Section({
   id, eyebrow, title, muted, children,
 }: { id: string; eyebrow: string; title: string; muted?: boolean; children: React.ReactNode }) {
   return (
-    <section id={id} className={`py-20 sm:py-24 ${muted ? "bg-muted/40" : ""}`}>
+    <section id={id} className={`relative py-20 sm:py-24 ${muted ? "bg-muted/30" : ""}`}>
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="mb-10 max-w-2xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">{eyebrow}</p>
+        <div className="mb-12 max-w-2xl">
+          <div className="flex items-center gap-3">
+            <span className="h-px w-8 bg-primary/60" />
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">{eyebrow}</p>
+          </div>
           <h2
-            className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl"
+            className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl md:text-[2.75rem]"
             style={{ fontFamily: "'Space Grotesk', sans-serif" }}
           >
             {title}
@@ -503,6 +506,7 @@ function Section({
     </section>
   );
 }
+
 
 function TimelineItem({
   icon, title, subtitle, meta, body,
