@@ -337,15 +337,17 @@ function Portfolio() {
             {PROJECTS.map((p, i) => (
               <Card
                 key={p.title}
-                className="group relative overflow-hidden rounded-xl border-border bg-card p-7 shadow-soft transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-elegant"
+                className="group relative overflow-hidden rounded-2xl border-border bg-card p-7 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-elegant"
               >
-                <div className="flex items-start justify-between gap-4">
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <div className="absolute -right-16 -top-16 size-40 rounded-full bg-primary/10 blur-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                <div className="relative flex items-start justify-between gap-4">
                   <div>
                     <p className="font-mono text-xs uppercase tracking-[0.25em] text-primary/80">
                       {String(i + 1).padStart(2, "0")} / Project
                     </p>
                     <h3
-                      className="mt-2 text-xl font-semibold tracking-tight"
+                      className="mt-2 text-xl font-semibold tracking-tight transition-colors group-hover:text-primary"
                       style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                     >
                       {p.title}
@@ -354,19 +356,19 @@ function Portfolio() {
                       {p.role}
                     </p>
                   </div>
-                  <div className="grid size-10 shrink-0 place-items-center rounded-md border border-border bg-muted/40 text-primary">
+                  <div className="grid size-11 shrink-0 place-items-center rounded-xl bg-primary-gradient text-primary-foreground shadow-glow">
                     <Code2 className="size-5" />
                   </div>
                 </div>
-                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                <p className="relative mt-4 text-sm leading-relaxed text-muted-foreground">
                   {p.desc}
                 </p>
-                <div className="mt-5 flex flex-wrap gap-1.5">
+                <div className="relative mt-5 flex flex-wrap gap-1.5">
                   {p.tech.map((t) => (
                     <Badge
                       key={t}
                       variant="outline"
-                      className="rounded-full border-border/80 bg-muted/30 font-mono text-[10px] uppercase tracking-wider"
+                      className="rounded-full border-primary/20 bg-primary/5 font-mono text-[10px] uppercase tracking-wider text-primary/90"
                     >
                       {t}
                     </Badge>
@@ -376,6 +378,7 @@ function Portfolio() {
             ))}
           </div>
         </Section>
+
 
         {/* EXPERIENCE */}
         <Section id="experience" eyebrow="Experience" title="Where I'm heading next">
