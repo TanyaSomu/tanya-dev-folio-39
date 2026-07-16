@@ -324,40 +324,44 @@ function Portfolio() {
 
         {/* PROJECTS */}
         <Section id="projects" eyebrow="Projects" title="Selected work" muted>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {PROJECTS.map((p) => (
+          <div className="grid gap-6 md:grid-cols-2">
+            {PROJECTS.map((p, i) => (
               <Card
                 key={p.title}
-                className="group overflow-hidden rounded-2xl border-border p-0 shadow-soft transition-all hover:-translate-y-1 hover:shadow-elegant"
+                className="group relative overflow-hidden rounded-xl border-border bg-card p-7 shadow-soft transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-elegant"
               >
-                <div className={`relative h-44 bg-gradient-to-br ${p.gradient}`}>
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.35),transparent_60%)]" />
-                  <div className="absolute bottom-3 left-4 text-primary-foreground/90">
-                    <Code2 className="size-8" />
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <p className="font-mono text-xs uppercase tracking-[0.25em] text-primary/80">
+                      {String(i + 1).padStart(2, "0")} / Project
+                    </p>
+                    <h3
+                      className="mt-2 text-xl font-semibold tracking-tight"
+                      style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                    >
+                      {p.title}
+                    </h3>
+                    <p className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">
+                      {p.role}
+                    </p>
+                  </div>
+                  <div className="grid size-10 shrink-0 place-items-center rounded-md border border-border bg-muted/40 text-primary">
+                    <Code2 className="size-5" />
                   </div>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>{p.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{p.desc}</p>
-                  <div className="mt-4 flex flex-wrap gap-1.5">
-                    {p.tech.map((t) => (
-                      <Badge key={t} variant="outline" className="rounded-full text-xs">
-                        {t}
-                      </Badge>
-                    ))}
-                  </div>
-                  <div className="mt-5 flex gap-2">
-                    <Button size="sm" variant="outline" asChild>
-                      <a href="#" aria-label={`${p.title} GitHub`}>
-                        <Github className="mr-1 size-4" /> GitHub
-                      </a>
-                    </Button>
-                    <Button size="sm" asChild className="bg-primary-gradient text-primary-foreground hover:opacity-90">
-                      <a href="#" aria-label={`${p.title} Live Demo`}>
-                        <ExternalLink className="mr-1 size-4" /> Live Demo
-                      </a>
-                    </Button>
-                  </div>
+                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                  {p.desc}
+                </p>
+                <div className="mt-5 flex flex-wrap gap-1.5">
+                  {p.tech.map((t) => (
+                    <Badge
+                      key={t}
+                      variant="outline"
+                      className="rounded-full border-border/80 bg-muted/30 font-mono text-[10px] uppercase tracking-wider"
+                    >
+                      {t}
+                    </Badge>
+                  ))}
                 </div>
               </Card>
             ))}
