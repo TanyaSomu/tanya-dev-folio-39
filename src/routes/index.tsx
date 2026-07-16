@@ -4,7 +4,7 @@ import { toast, Toaster } from "sonner";
 import {
   Menu, X, Github, Linkedin, Mail, Phone, MapPin, Download,
   ArrowRight, ArrowUp, Send, Code2, Database, Wrench, Monitor,
-  Globe, GraduationCap, Briefcase, Award, ExternalLink, Sparkles,
+  Globe, GraduationCap, Briefcase, Award, Sparkles,
   Sun, Moon,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
