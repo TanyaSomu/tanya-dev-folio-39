@@ -50,18 +50,18 @@ const PROJECTS = [
     title: "Hospital Management System",
     desc: "Physiotherapy Clinic HMS with role-based access for Patients, Therapists, and Chief Doctor. Designed relational schema for registration, therapist management, appointment booking, exercise assignment, and treatment tracking with a focus on normalization and data integrity.",
     tech: ["SQL", "Schema Design", "RBAC"],
-    role: "Academic Project",
+    role: "Outside Project",
   },
   {
     title: "College ERP System — HOD Portal",
-    desc: "Centralized ERP platform with an HOD portal to manage student and staff data. Designed modules for academic records and departmental management to enable efficient monitoring and streamlined administrative workflows.",
-    tech: ["Java", "MySQL", "ERP"],
+    desc: "Centralized ERP platform with an HOD portal to manage student and staff data. Designed modules for academic records and departmental management, and built the frontend interface using HTML and CSS for clean, responsive data views.",
+    tech: ["HTML", "CSS", "Java", "MySQL", "ERP"],
     role: "Academic Project",
   },
   {
     title: "Time Table Scheduler",
-    desc: "Web system that automatically generates conflict-free class timetables. Reduced manual scheduling errors and improved academic timetable management efficiency.",
-    tech: ["JavaScript", "Node.js", "Algorithms"],
+    desc: "Database administrator for an automated timetable scheduling system. Designed and managed the PostgreSQL database, built normalized schemas for courses, faculty, classrooms, and slots, and ensured conflict-free schedule generation through efficient query design.",
+    tech: ["PostgreSQL", "Database Administration", "SQL"],
     role: "Web Development Intern — AR Technologies",
   },
 ];
