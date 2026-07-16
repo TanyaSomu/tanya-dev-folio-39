@@ -100,9 +100,6 @@
   --shadow-soft: 0 4px 20px -6px oklch(0.48 0.2 262 / 0.15);
   --shadow-elegant: 0 20px 50px -20px oklch(0.48 0.2 262 / 0.25);
 }
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
-}
 
 .dark {
   --background: oklch(0.129 0.042 264.695);
