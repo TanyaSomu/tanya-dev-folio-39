@@ -4,7 +4,7 @@ import { toast, Toaster } from "sonner";
 import {
   Menu, X, Github, Linkedin, Mail, Phone, MapPin, Download,
   ArrowRight, ArrowUp, Send, Code2, Database, Wrench, Monitor,
-  Globe, GraduationCap, Briefcase, Award, ExternalLink, Sparkles,
+  Globe, GraduationCap, Briefcase, Award, Sparkles,
   Sun, Moon,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -31,38 +31,44 @@ const NAV = [
 ];
 
 const SKILL_GROUPS = [
-  { title: "Languages", icon: Code2, items: ["Java"] },
-  { title: "Web Technologies", icon: Globe, items: ["HTML", "CSS", "JavaScript", "React"] },
-  { title: "Databases", icon: Database, items: ["MySQL", "PostgreSQL", "MongoDB"] },
-  { title: "Tools", icon: Wrench, items: ["Git", "GitHub", "VS Code", "IntelliJ IDEA", "AntiGravity"] },
-  { title: "Operating Systems", icon: Monitor, items: ["Ubuntu Linux", "Linux Mint", "Windows"] },
+  { title: "Languages", icon: Code2, items: ["Java", "Python", "JavaScript", "HTML", "CSS"] },
+  { title: "Backend & Runtime", icon: Globe, items: ["Node.js", "REST APIs", "OOP"] },
+  { title: "Databases", icon: Database, items: ["MySQL", "SQL", "MongoDB", "NoSQL"] },
+  { title: "Core Concepts", icon: Sparkles, items: ["Data Structures", "Algorithms", "Database Design"] },
+  { title: "Tools", icon: Wrench, items: ["Git", "GitHub", "VS Code", "AntiGravity"] },
+  { title: "Languages Known", icon: Monitor, items: ["Tamil", "English"] },
 ];
 
 const PROJECTS = [
   {
-    title: "Project Title One",
-    desc: "A short description of what this project does, the problem it solves and the impact. Replace with real content.",
-    tech: ["Java", "Spring Boot", "MySQL"],
-    gradient: "from-blue-500 to-indigo-600",
+    title: "Gym Management System",
+    desc: "Admin-focused platform to manage gym members, progress tracking, membership plans, and reporting. Designed the complete database structure for the Progress Tracking, Membership, and Report modules, ensuring organized data and smooth workflow between modules.",
+    tech: ["MySQL", "Backend", "Database Design"],
+    role: "Web Development Intern — AR Technologies",
   },
   {
-    title: "Project Title Two",
-    desc: "A short description of what this project does, the problem it solves and the impact. Replace with real content.",
-    tech: ["Node.js", "Express", "MongoDB"],
-    gradient: "from-sky-500 to-blue-600",
+    title: "Hospital Management System",
+    desc: "Physiotherapy Clinic HMS with role-based access for Patients, Therapists, and Chief Doctor. Designed relational schema for registration, therapist management, appointment booking, exercise assignment, and treatment tracking with a focus on normalization and data integrity.",
+    tech: ["SQL", "Schema Design", "RBAC"],
+    role: "Academic Project",
   },
   {
-    title: "Project Title Three",
-    desc: "A short description of what this project does, the problem it solves and the impact. Replace with real content.",
-    tech: ["React", "PostgreSQL", "REST API"],
-    gradient: "from-indigo-500 to-purple-600",
+    title: "College ERP System — HOD Portal",
+    desc: "Centralized ERP platform with an HOD portal to manage student and staff data. Designed modules for academic records and departmental management to enable efficient monitoring and streamlined administrative workflows.",
+    tech: ["Java", "MySQL", "ERP"],
+    role: "Academic Project",
+  },
+  {
+    title: "Time Table Scheduler",
+    desc: "Web system that automatically generates conflict-free class timetables. Reduced manual scheduling errors and improved academic timetable management efficiency.",
+    tech: ["JavaScript", "Node.js", "Algorithms"],
+    role: "Web Development Intern — AR Technologies",
   },
 ];
 
 const CERTS = [
-  { title: "Certification Placeholder", org: "Issuing Organization", year: "2025" },
-  { title: "Certification Placeholder", org: "Issuing Organization", year: "2025" },
-  { title: "Certification Placeholder", org: "Issuing Organization", year: "2025" },
+  { title: "Fundamentals of Python", org: "Infosys Springboard", year: "2025" },
+  { title: "Basics of MongoDB", org: "MongoDB (Official)", year: "2025" },
 ];
 
 function Portfolio() {
@@ -318,40 +324,44 @@ function Portfolio() {
 
         {/* PROJECTS */}
         <Section id="projects" eyebrow="Projects" title="Selected work" muted>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {PROJECTS.map((p) => (
+          <div className="grid gap-6 md:grid-cols-2">
+            {PROJECTS.map((p, i) => (
               <Card
                 key={p.title}
-                className="group overflow-hidden rounded-2xl border-border p-0 shadow-soft transition-all hover:-translate-y-1 hover:shadow-elegant"
+                className="group relative overflow-hidden rounded-xl border-border bg-card p-7 shadow-soft transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-elegant"
               >
-                <div className={`relative h-44 bg-gradient-to-br ${p.gradient}`}>
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.35),transparent_60%)]" />
-                  <div className="absolute bottom-3 left-4 text-primary-foreground/90">
-                    <Code2 className="size-8" />
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <p className="font-mono text-xs uppercase tracking-[0.25em] text-primary/80">
+                      {String(i + 1).padStart(2, "0")} / Project
+                    </p>
+                    <h3
+                      className="mt-2 text-xl font-semibold tracking-tight"
+                      style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                    >
+                      {p.title}
+                    </h3>
+                    <p className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">
+                      {p.role}
+                    </p>
+                  </div>
+                  <div className="grid size-10 shrink-0 place-items-center rounded-md border border-border bg-muted/40 text-primary">
+                    <Code2 className="size-5" />
                   </div>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>{p.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{p.desc}</p>
-                  <div className="mt-4 flex flex-wrap gap-1.5">
-                    {p.tech.map((t) => (
-                      <Badge key={t} variant="outline" className="rounded-full text-xs">
-                        {t}
-                      </Badge>
-                    ))}
-                  </div>
-                  <div className="mt-5 flex gap-2">
-                    <Button size="sm" variant="outline" asChild>
-                      <a href="#" aria-label={`${p.title} GitHub`}>
-                        <Github className="mr-1 size-4" /> GitHub
-                      </a>
-                    </Button>
-                    <Button size="sm" asChild className="bg-primary-gradient text-primary-foreground hover:opacity-90">
-                      <a href="#" aria-label={`${p.title} Live Demo`}>
-                        <ExternalLink className="mr-1 size-4" /> Live Demo
-                      </a>
-                    </Button>
-                  </div>
+                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                  {p.desc}
+                </p>
+                <div className="mt-5 flex flex-wrap gap-1.5">
+                  {p.tech.map((t) => (
+                    <Badge
+                      key={t}
+                      variant="outline"
+                      className="rounded-full border-border/80 bg-muted/30 font-mono text-[10px] uppercase tracking-wider"
+                    >
+                      {t}
+                    </Badge>
+                  ))}
                 </div>
               </Card>
             ))}
