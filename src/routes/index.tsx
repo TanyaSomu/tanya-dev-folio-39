@@ -238,23 +238,29 @@ function Portfolio() {
               </div>
             </div>
 
-            <div className="relative mx-auto animate-scale-in">
-              <div className="absolute inset-0 -z-10 translate-x-6 translate-y-6 rounded-[2rem] bg-primary-gradient opacity-40 blur-3xl" />
-              <div className="relative overflow-hidden rounded-[2rem] border border-primary/20 bg-card p-2 shadow-elegant animate-float">
+            <div className="relative mx-auto animate-scale-in flex items-center justify-center">
+              {/* concentric rings — MAHVU signature */}
+              <div className="pointer-events-none absolute inset-0 grid place-items-center" aria-hidden>
+                <div className="absolute size-[520px] rounded-full border border-primary/10" />
+                <div className="absolute size-[420px] rounded-full border border-primary/15" />
+                <div className="absolute size-[320px] rounded-full border border-primary/20" />
+                <div className="absolute size-[560px] rounded-full bg-primary/5 blur-2xl" />
+              </div>
+              <div className="relative">
                 <img
                   src={tanyaAsset.url}
                   alt="Portrait of Tanya Somasundaram"
                   loading="eager"
-                  className="h-[440px] w-[340px] rounded-[1.6rem] object-cover sm:h-[520px] sm:w-[400px]"
+                  className="relative h-[440px] w-[340px] rounded-[1.4rem] object-cover shadow-elegant sm:h-[520px] sm:w-[400px]"
                 />
-              </div>
-              <div className="absolute -bottom-4 -left-4 rounded-2xl border border-border bg-background/90 px-4 py-3 shadow-soft backdrop-blur">
-                <p className="text-[10px] uppercase tracking-wider text-muted-foreground">CGPA</p>
-                <p className="text-lg font-bold gradient-text">8.6 / 10</p>
-              </div>
-              <div className="absolute -top-4 -right-4 hidden rounded-2xl border border-border bg-background/90 px-4 py-3 shadow-soft backdrop-blur sm:block">
-                <p className="text-[10px] uppercase tracking-wider text-muted-foreground">Focus</p>
-                <p className="text-sm font-bold text-primary">Backend + DB</p>
+                <div className="absolute -bottom-4 -left-4 rounded-2xl border border-border bg-background px-4 py-3 shadow-soft">
+                  <p className="text-[10px] uppercase tracking-wider text-muted-foreground">CGPA</p>
+                  <p className="text-lg font-bold gradient-text">8.6 / 10</p>
+                </div>
+                <div className="absolute -top-4 -right-4 hidden rounded-2xl border border-border bg-background px-4 py-3 shadow-soft sm:block">
+                  <p className="text-[10px] uppercase tracking-wider text-muted-foreground">Focus</p>
+                  <p className="text-sm font-bold text-primary">Backend + DB</p>
+                </div>
               </div>
             </div>
           </div>
