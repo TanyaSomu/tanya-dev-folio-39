@@ -125,11 +125,11 @@ function Portfolio() {
       {/* nav */}
       <header className="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-lg">
         <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
-          <button onClick={() => go("home")} className="flex items-center gap-2 font-semibold" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-            <span className="grid size-8 place-items-center rounded-lg bg-primary-gradient text-primary-foreground shadow-soft">
+          <button onClick={() => go("home")} className="flex items-center gap-2 font-black uppercase tracking-widest" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+            <span className="grid size-8 place-items-center rounded-md bg-primary text-primary-foreground">
               <Sparkles className="size-4" />
             </span>
-            <span className="gradient-text">Tanya S.</span>
+            <span className="text-foreground">TAN<span className="text-accent">YA</span></span>
           </button>
 
           <ul className="hidden items-center gap-1 lg:flex">
