@@ -224,13 +224,13 @@ function Portfolio() {
                 software development skills.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <Button size="lg" onClick={() => go("projects")} className="bg-primary-gradient text-primary-foreground shadow-glow hover:opacity-90">
+                <Button size="lg" onClick={() => go("projects")} className="rounded-full bg-primary text-primary-foreground shadow-glow hover:bg-primary/90">
                   View Projects <ArrowRight className="ml-1 size-4" />
                 </Button>
-                <Button size="lg" variant="outline" onClick={() => go("contact")} className="border-primary/40 hover:bg-primary/10 hover:text-primary">
+                <Button size="lg" variant="outline" onClick={() => go("contact")} className="rounded-full border-primary/30 text-primary hover:bg-primary/10 hover:text-primary">
                   Contact Me
                 </Button>
-                <Button size="lg" variant="ghost" asChild>
+                <Button size="lg" variant="ghost" asChild className="rounded-full">
                   <a href={resumeAsset.url} download aria-label="Download Resume">
                     <Download className="mr-1 size-4" /> Resume
                   </a>
