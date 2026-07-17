@@ -125,11 +125,11 @@ function Portfolio() {
       {/* nav */}
       <header className="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-lg">
         <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
-          <button onClick={() => go("home")} className="flex items-center gap-2 font-semibold" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-            <span className="grid size-8 place-items-center rounded-lg bg-primary-gradient text-primary-foreground shadow-soft">
+          <button onClick={() => go("home")} className="flex items-center gap-2 font-black uppercase tracking-widest" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+            <span className="grid size-8 place-items-center rounded-md bg-primary text-primary-foreground">
               <Sparkles className="size-4" />
             </span>
-            <span className="gradient-text">Tanya S.</span>
+            <span className="text-foreground">TAN<span className="text-accent">YA</span></span>
           </button>
 
           <ul className="hidden items-center gap-1 lg:flex">
@@ -191,46 +191,56 @@ function Portfolio() {
       </header>
 
       <main className="pt-16">
-        {/* HERO */}
-        <section id="home" className="relative overflow-hidden bg-hero-gradient">
-          <div className="pointer-events-none absolute inset-0 bg-grid opacity-60" aria-hidden />
-          <div className="pointer-events-none absolute -left-32 top-10 size-96 rounded-full bg-primary/25 blur-3xl animate-glow" aria-hidden />
-          <div className="pointer-events-none absolute -right-32 bottom-0 size-96 rounded-full bg-sky-400/20 blur-3xl animate-glow" aria-hidden />
-          <div className="relative mx-auto grid max-w-6xl gap-12 px-4 py-20 sm:px-6 md:py-28 lg:grid-cols-2 lg:items-center">
+        {/* HERO - split cream/teal */}
+        <section id="home" className="relative overflow-hidden">
+          {/* split background */}
+          <div className="absolute inset-0 grid grid-cols-1 lg:grid-cols-2" aria-hidden>
+            <div className="bg-background" />
+            <div className="bg-primary hidden lg:block" />
+          </div>
+          {/* decorative arcs top-left */}
+          <div className="pointer-events-none absolute -left-24 -top-24 size-96 rounded-full border border-primary/15" aria-hidden />
+          <div className="pointer-events-none absolute -left-16 -top-16 size-72 rounded-full border border-primary/10" aria-hidden />
+          {/* decorative arcs top-right on teal */}
+          <div className="pointer-events-none absolute -right-24 -top-20 hidden size-80 rounded-full border border-accent/20 lg:block" aria-hidden />
+
+          <div className="relative mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 md:py-24 lg:grid-cols-2 lg:items-center lg:gap-8">
+            {/* LEFT - cream side with text */}
             <div className="animate-fade-in">
-              <Badge className="mb-5 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-primary hover:bg-primary/15">
-                <span className="mr-1.5 inline-block size-1.5 rounded-full bg-primary animate-pulse" />
-                Available for internships
-              </Badge>
+              <div className="mb-6 flex items-center gap-3">
+                <span className="h-px w-8 bg-foreground/70" />
+                <p className="text-xs font-semibold uppercase tracking-[0.35em] text-foreground/70">Hello</p>
+              </div>
               <h1
-                className="text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-[4.25rem]"
+                className="text-5xl font-black leading-[1.02] tracking-tight text-foreground sm:text-6xl md:text-7xl"
                 style={{ fontFamily: "'Space Grotesk', sans-serif" }}
               >
-                Tanya <span className="gradient-text">Somasundaram</span>
+                I'm <span className="text-accent">Tanya</span>
+                <br />
+                Backend Developer
               </h1>
-              <div className="mt-4 flex items-center gap-3">
-                <span className="h-px w-10 bg-primary/60" />
-                <p className="text-lg font-medium uppercase tracking-[0.2em] text-primary sm:text-xl">
-                  Backend Developer
-                </p>
-              </div>
-              <p className="mt-5 max-w-xl text-base italic text-muted-foreground sm:text-lg">
-                "Building reliable backend systems and transforming ideas into scalable digital solutions."
-              </p>
-              <p className="mt-5 max-w-xl leading-relaxed text-muted-foreground">
-                I am a final-year Information Technology student with a strong passion for
-                backend development, databases, and problem-solving. I enjoy building efficient
-                applications, learning modern technologies, and continuously improving my
-                software development skills.
+              <p className="mt-6 max-w-md text-sm leading-relaxed text-muted-foreground sm:text-base">
+                A final-year Information Technology student building reliable backend systems,
+                well-designed databases, and turning ideas into scalable digital solutions.
+                Currently seeking internships and full-time roles.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <Button size="lg" onClick={() => go("projects")} className="rounded-full bg-primary text-primary-foreground shadow-glow hover:bg-primary/90">
-                  View Projects <ArrowRight className="ml-1 size-4" />
+                <Button
+                  size="lg"
+                  onClick={() => go("contact")}
+                  className="rounded-md bg-primary px-7 text-primary-foreground hover:bg-primary/90"
+                >
+                  Let's Talk
                 </Button>
-                <Button size="lg" variant="outline" onClick={() => go("contact")} className="rounded-full border-primary/30 text-primary hover:bg-primary/10 hover:text-primary">
-                  Contact Me
+                <Button
+                  size="lg"
+                  variant="outline"
+                  onClick={() => go("projects")}
+                  className="rounded-md border-primary/40 bg-transparent px-7 text-primary hover:bg-primary/10 hover:text-primary"
+                >
+                  Learn More
                 </Button>
-                <Button size="lg" variant="ghost" asChild className="rounded-full">
+                <Button size="lg" variant="ghost" asChild className="rounded-md">
                   <a href={resumeAsset.url} download aria-label="Download Resume">
                     <Download className="mr-1 size-4" /> Resume
                   </a>
@@ -238,29 +248,24 @@ function Portfolio() {
               </div>
             </div>
 
-            <div className="relative mx-auto animate-scale-in flex items-center justify-center">
-              {/* concentric rings — MAHVU signature */}
-              <div className="pointer-events-none absolute inset-0 grid place-items-center" aria-hidden>
-                <div className="absolute size-[520px] rounded-full border border-primary/10" />
-                <div className="absolute size-[420px] rounded-full border border-primary/15" />
-                <div className="absolute size-[320px] rounded-full border border-primary/20" />
-                <div className="absolute size-[560px] rounded-full bg-primary/5 blur-2xl" />
+            {/* RIGHT - teal side with portrait */}
+            <div className="relative mx-auto flex items-end justify-center lg:justify-end">
+              {/* decorative shape behind portrait */}
+              <div className="pointer-events-none absolute right-4 top-8 hidden size-24 rounded-tl-full border border-accent/30 lg:block" aria-hidden />
+              <img
+                src={tanyaAsset.url}
+                alt="Portrait of Tanya Somasundaram"
+                loading="eager"
+                className="relative h-[440px] w-[340px] rounded-md object-cover shadow-elegant sm:h-[520px] sm:w-[400px]"
+              />
+              {/* floating badges */}
+              <div className="absolute -bottom-4 -left-4 rounded-md border border-border bg-background px-4 py-3 shadow-soft sm:-left-8">
+                <p className="text-[10px] uppercase tracking-wider text-muted-foreground">CGPA</p>
+                <p className="text-lg font-bold text-primary">8.6 / 10</p>
               </div>
-              <div className="relative">
-                <img
-                  src={tanyaAsset.url}
-                  alt="Portrait of Tanya Somasundaram"
-                  loading="eager"
-                  className="relative h-[440px] w-[340px] rounded-[1.4rem] object-cover shadow-elegant sm:h-[520px] sm:w-[400px]"
-                />
-                <div className="absolute -bottom-4 -left-4 rounded-2xl border border-border bg-background px-4 py-3 shadow-soft">
-                  <p className="text-[10px] uppercase tracking-wider text-muted-foreground">CGPA</p>
-                  <p className="text-lg font-bold gradient-text">8.6 / 10</p>
-                </div>
-                <div className="absolute -top-4 -right-4 hidden rounded-2xl border border-border bg-background px-4 py-3 shadow-soft sm:block">
-                  <p className="text-[10px] uppercase tracking-wider text-muted-foreground">Focus</p>
-                  <p className="text-sm font-bold text-primary">Backend + DB</p>
-                </div>
+              <div className="absolute -top-4 right-2 hidden rounded-md border border-accent/40 bg-primary px-4 py-3 text-primary-foreground shadow-soft sm:block">
+                <p className="text-[10px] uppercase tracking-wider text-accent">Focus</p>
+                <p className="text-sm font-bold">Backend + DB</p>
               </div>
             </div>
           </div>
