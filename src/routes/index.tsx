@@ -14,6 +14,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import tanyaAsset from "@/assets/tanya.jpeg.asset.json";
+import resumeAsset from "@/assets/resume.pdf.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Portfolio,
@@ -230,7 +231,7 @@ function Portfolio() {
                   Contact Me
                 </Button>
                 <Button size="lg" variant="ghost" asChild>
-                  <a href="/resume.txt" download aria-label="Download Resume">
+                  <a href={resumeAsset.url} download aria-label="Download Resume">
                     <Download className="mr-1 size-4" /> Resume
                   </a>
                 </Button>
